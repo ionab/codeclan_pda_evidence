@@ -37,17 +37,15 @@ describe('calculator', function () {
     assert.strictEqual(1, calculator.runningTotal);
   })
   it('should take in operators using calculator.operatorClick and perform the correct caulculation',function(){
-    calculator.numberClick(5);
-    calculator.operatorClick("+");
-    calculator.numberClick(5);
-    calculator.operatorClick("=");
+    v
     assert.strictEqual(10, calculator.runningTotal);
   })
+  clearClick: function() {
+    if (this.runningTotal == 0) {
+      this.previousOperator = null;
+      this.previousTotal = null;
+    }
+    this.runningTotal = 0;
+  }
 
-  it('should clear previous operator and previos total to null and set running total to zero using calculator.clearClick', function(){
-    calculator.clearClick();
-    assert.strictEqual(null, calculator.previousOperator);
-    assert.strictEqual(null, calculator.previousTotal);
-    assert.strictEqual(0, calculator.runningTotal);
-  })
 });

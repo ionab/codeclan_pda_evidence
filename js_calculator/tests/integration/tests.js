@@ -84,7 +84,16 @@ describe('calculator functionality', function() {
     element(by.css('#operator_equals')).click();
 
     expect(running_total.getAttribute('value')).to.eventually.equal("8");
+  })
 
+  it('should be show ERROR when you try to divide by zero', function(){
+    running_total = element(by.css('#running_total'));
+    element(by.css('#number1')).click();
+    element(by.css('#operator_divide')).click();
+    element(by.css('#number0')).click();
+    element(by.css('#operator_equals')).click();
+
+    expect(running_total.getAttribute('value')).to.eventually.equal("error");
   })
 
 });
